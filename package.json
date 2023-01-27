@@ -13,5 +13,13 @@
     "axios": "^1.2.5",
     "nodemon": "^2.0.20",
     "telegraf": "3.33"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/singhalshreya/telebot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/singhalshreya/telebot/issues"
+  },
+  "homepage": "https://github.com/singhalshreya/telebot#readme"
 }
