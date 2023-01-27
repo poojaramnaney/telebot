@@ -1,8 +1,8 @@
 const Telegraf = require('telegraf');
 const axios = require('axios');
 
-const bot = new Telegraf('5658341849:AAHbgYkWUPR3Xx6-YW2u5AIOlovVM1p3h_M');
-// kamya bot api -5853659168:AAGUOku5SeuGTRtBZb75tcIBSsmdySxsAs8
+const bot = new Telegraf('');
+
 bot.command('start', ctx=> {
     sendStartMessage(ctx);
 })
