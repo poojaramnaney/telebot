@@ -1,7 +1,7 @@
 const Telegraf = require('telegraf');
 const axios = require('axios');
 
-const bot = new Telegraf('5658341849:AAFClA3xmXcjRumatjaeszwlCGkQ_0aijLg');
+const bot = new Telegraf('');
 
 bot.command('start', ctx=> {
     sendStartMessage(ctx);
