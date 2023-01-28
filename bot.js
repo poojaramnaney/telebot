@@ -13,7 +13,7 @@ bot.action('start', ctx =>{
 })
 
 function sendStartMessage(ctx){
-    let startMessage = 'Heyy! Niax bot welcomes you:)'
+    let startMessage = 'Heyy! I am Niax - FAQ bot:) \nHow can I help you?)'
     bot.telegram.sendMessage(ctx.chat.id, startMessage,
         {
             reply_markup: {
