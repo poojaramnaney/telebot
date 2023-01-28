@@ -1,7 +1,7 @@
 {
   "name": "telebot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Click [here](link) to go to our website.\r The website was deployed on versel.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/singhalshreya/telebot/issues"
   },
-  "homepage": "https://github.com/singhalshreya/telebot#readme"
+  "homepage": "https://github.com/singhalshreya/telebot#readme",
+  "devDependencies": {}
 }

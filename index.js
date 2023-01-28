@@ -1,7 +1,7 @@
 const Telegraf = require('telegraf');
 const axios = require('axios');
 
-const bot = new Telegraf('');
+const bot = new Telegraf('5658341849:AAFClA3xmXcjRumatjaeszwlCGkQ_0aijLg');
 
 bot.command('start', ctx=> {
     sendStartMessage(ctx);
@@ -60,14 +60,13 @@ bot.action('hackinfo', ctx => {
                         { text: 'Problem Statements', callback_data: 'ps'}
                     ],
                     [
-                        { text: 'Rules', callback_data: 'rules'},
-                        { text: 'Prizes', callback_data: 'prizes'},                        
+                        { text: 'Rules', callback_data: 'rules'},                   
                         { text: 'Mode', callback_data: 'loc'}
                     ],
                     [
                         
                         { text: 'Hackathon Theme', callback_data: 'hacktheme'},
-                        { text: 'Reminder', callback_data: 'rem'}
+                        { text: 'Prizes', callback_data: 'prizes'}
                     ],
                     [
                         { text: 'Resources', callback_data: 'resources'/* url:'https://www.youtube.com/watch?v=Lt-MY9LQLv0&list=PLX2ojSA27XYhIopdU2RRQIMe7gfwcKL84&index=66&ab_channel=TutorialWeekly' */},
@@ -146,6 +145,7 @@ bot.action('resources', ctx => {
                 ]
             }
         })
+
 })
 
 bot.command('fortune', (ctx) => {
@@ -163,22 +163,6 @@ bot.command('fortune', (ctx) => {
 bot.action('regcost', ctx => {
     
     let hackMessage = "Don't break the bank, join us for free!"
-    
-    bot.telegram.sendMessage(ctx.chat.id, hackMessage,
-        {
-            reply_markup: {
-                inline_keyboard: [
-                    [
-                        { text: 'Back to INTRO', callback_data: 'start' },                        
-                    ]                    
-                ]
-            }
-        })
-})
-
-bot.action('rem', ctx => {
-    
-    let hackMessage = 'reminder daalna hai'
     
     bot.telegram.sendMessage(ctx.chat.id, hackMessage,
         {
@@ -286,8 +270,76 @@ bot.hears('Remove Keyboard', ctx => {
 })
 
 bot.action('registration', ctx => {
+    let hackMessage = "REGISTRATION DETAILS"
     
-        let hackMessage = 'daalna hai'
+    bot.telegram.sendMessage(ctx.chat.id, hackMessage,
+        {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        { text: 'Deadline', callback_data: 'dead'},
+                        { text: 'Reminder', callback_data: 'rem'}
+                    ],
+                    [
+                        {text: 'Requirements', callback_data:'req'}
+                    ],                 
+                    [
+                        { text: 'Back to INTRO', callback_data: 'start' },                        
+                    ]
+                    
+                ]
+            }
+        }) 
+    })     
+
+bot.action('req', ctx => {
+        let hackMessage = "Requirements for registration: \n1. Name \n2. Email-Id \n3. Phone Number \n4. Team name"
+        ctx.reply("To continue the registartion process, enter 'REGISTER NOW'.");
+        bot.telegram.sendMessage(ctx.chat.id, hackMessage,
+            {
+                reply_markup: {
+                    keyboard: [
+                        [
+                            {text: "Register Now"}
+                        ],
+                        [
+                            {text: "Remove Keyboard"}  
+                        ]
+                    ],
+                    resize_keyboard: true,
+                    one_time_keyboard:true
+                                
+                }
+            })
+          
+        })
+
+bot.hears('Register Now', ctx => {
+    ctx.reply("Enter your name for registering");                
+        })
+
+bot.hears('Remove Keyboard', ctx => {
+    
+        bot.telegram.sendMessage(ctx.chat.id, 'Removed Keyboard.',
+            {
+                reply_markup: {
+                    remove_keyboard: true
+                }
+            })
+            ctx.reply("Enter /start.");
+    })
+
+// bot.hears('Name', ctx => {
+//     ctx.reply("oky");
+// })
+// bot.name((ctx) => {
+//     ctx.reply(ctx.from.first_name + " has entered the start command and it is a " + 
+//     ctx.updateSubTypes[0]);
+// })
+
+bot.action('dead', ctx => {
+    
+        let hackMessage = 'The registration deadline for this hackthon is 27 Jan 2023, 10PM. Hurry up and register for this opportunity!!!'
         
         bot.telegram.sendMessage(ctx.chat.id, hackMessage,
             {
@@ -301,7 +353,23 @@ bot.action('registration', ctx => {
             })
     })
 
-    bot.action('help', ctx => {
+bot.action('rem', ctx => {
+    
+        let hackMessage = 'reminder daalna hai'
+        
+        bot.telegram.sendMessage(ctx.chat.id, hackMessage,
+            {
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            { text: 'Back to INTRO', callback_data: 'start' },                        
+                        ]                    
+                    ]
+                }
+            })
+    })
+        
+bot.action('help', ctx => {
     
         help(ctx)
     })
