@@ -1,7 +1,8 @@
+require('dotenv').config();
 const Telegraf = require('telegraf');
 const axios = require('axios');
 
-const bot = new Telegraf('');
+const bot = new Telegraf(process.env.TOKEN);
 
 bot.command('start', ctx=> {
     sendStartMessage(ctx);
@@ -12,8 +13,10 @@ bot.action('start', ctx =>{
     sendStartMessage(ctx);   
 })
 
+
+
 function sendStartMessage(ctx){
-    let startMessage = 'Heyy! I am Niax - FAQ bot:) \nHow can I help you?)'
+    let startMessage = 'Heyy! I am Niax - FAQ bot:) \nHow can I help you?'
     bot.telegram.sendMessage(ctx.chat.id, startMessage,
         {
             reply_markup: {
@@ -61,16 +64,17 @@ bot.action('hackinfo', ctx => {
                     ],
                     [
                         { text: 'Rules', callback_data: 'rules'},                   
-                        { text: 'Mode', callback_data: 'loc'}
+                        { text: 'Mode', callback_data: 'loc'},
+                        { text: 'Prizes', callback_data: 'prizes'}
                     ],
                     [
                         
                         { text: 'Hackathon Theme', callback_data: 'hacktheme'},
-                        { text: 'Prizes', callback_data: 'prizes'}
+                        { text: 'Registration Cost', callback_data: 'regcost'}
                     ],
                     [
                         { text: 'Resources', callback_data: 'resources'/* url:'https://www.youtube.com/watch?v=Lt-MY9LQLv0&list=PLX2ojSA27XYhIopdU2RRQIMe7gfwcKL84&index=66&ab_channel=TutorialWeekly' */},
-                        { text: 'Registration Cost', callback_data: 'regcost'}
+                        { text: 'Search Devfolio', url:'https://devfolio.co/hackathons'}
                         
                     ],
                     [
@@ -315,7 +319,7 @@ bot.action('req', ctx => {
         })
 
 bot.hears('Register Now', ctx => {
-    ctx.reply("Enter your name for registering");                
+    ctx.reply('Check out the link below: \nhttps://castor-2023.devfolio.co/');                
         })
 
 bot.hears('Remove Keyboard', ctx => {
@@ -328,14 +332,6 @@ bot.hears('Remove Keyboard', ctx => {
             })
             ctx.reply("Enter /start.");
     })
-
-// bot.hears('Name', ctx => {
-//     ctx.reply("oky");
-// })
-// bot.name((ctx) => {
-//     ctx.reply(ctx.from.first_name + " has entered the start command and it is a " + 
-//     ctx.updateSubTypes[0]);
-// })
 
 bot.action('dead', ctx => {
     
@@ -355,7 +351,7 @@ bot.action('dead', ctx => {
 
 bot.action('rem', ctx => {
     
-        let hackMessage = 'reminder daalna hai'
+        let hackMessage = 'Should I set a reminder for you??'
         
         bot.telegram.sendMessage(ctx.chat.id, hackMessage,
             {

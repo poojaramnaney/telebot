@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.2.5",
+    "dotenv": "^16.0.3",
     "nodemon": "^2.0.20",
     "telegraf": "3.33"
   },
@@ -21,6 +22,5 @@
   "bugs": {
     "url": "https://github.com/singhalshreya/telebot/issues"
   },
-  "homepage": "https://github.com/singhalshreya/telebot#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/singhalshreya/telebot#readme"
 }
